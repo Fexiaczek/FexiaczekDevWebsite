@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Fexiaczek.dev — Developer stron WWW & botów Discord</title>
+	<meta name="description" content="Fexiaczek.dev — Developer stron WWW, botów Discord i rozwiązań programistycznych. Doświadczony, szybki kontakt, profesjonalne projekty." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link rel="icon" href="assets/logo.png" sizes="48x48">
+	<style>
+		:root{
+			--bg:#0b1020;
+			--panel:#071028;
+			--muted:#9aa6c4;
+			--accent1:#39a2ff;
+			--accent2:#0552b2;
+			--glass: rgba(255,255,255,0.03);
+			--neon: 0 6px 30px rgba(57,162,255,0.12), 0 0 30px rgba(57,162,255,0.06);
+			color-scheme: dark;
+			font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+		}
+		*{box-sizing:border-box}
+		html,body{height:100%}
+		body{
+			margin:0;
+			background:radial-gradient(800px 300px at 10% 10%, rgba(57,162,255,0.08), transparent),
+					linear-gradient(135deg, #04294a 0%, #000000 100%);
+			cursor: none;
+			color:#e6eef8;
+			-webkit-font-smoothing:antialiased;
+			-moz-osx-font-smoothing:grayscale;
+			line-height:1.45;
+			padding:0 20px;
+		}
+		.container{max-width:1100px;margin:0 auto;padding:28px 16px}
+		/* Navbar */
+		header{position:sticky;top:12px;z-index:60}
+		.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+		.brand{display:flex;gap:12px;align-items:center}
+		.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#051428;box-shadow:var(--neon);transition:all 0.3s ease;cursor:pointer}
+		.logo:hover{transform:scale(1.08);box-shadow:0 8px 40px rgba(57,162,255,0.25)}
+		nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+		nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px;transition:all 0.25s cubic-bezier(0.4,0,0.2,1)}
+		nav a:hover{color:var(--accent1);background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);transform:translateY(-2px)}
+		.cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:10px;color:#02102a;font-weight:600;box-shadow:0 6px 20px rgba(5,82,178,0.18);text-decoration:none;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+		.cta:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(57,162,255,0.35)}
+		.menu-toggle{display:none;background:transparent;border:0;color:var(--muted);cursor:pointer;transition:color 0.25s}
+		.menu-toggle:hover{color:var(--accent1)}
+		/* Hero */
+		.hero{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;padding:60px 0}
+		.hero-left{max-width:720px}
+		.eyebrow{display:inline-block;padding:6px 10px;background:var(--glass);border-radius:999px;color:var(--muted);font-weight:600;font-size:13px;transition:all 0.3s ease}
+		.eyebrow:hover{background:rgba(57,162,255,0.1);color:var(--accent1);transform:translateY(-2px)}
+		h1{font-size:46px;margin:16px 0 8px;line-height:1.02;color:#e9f5ff;transition:color 0.3s ease}
+		h1:hover{color:var(--accent1)}
+		p.lead{color:var(--muted);font-size:16px;margin:0 0 20px;transition:color 0.3s ease}
+		p.lead:hover{color:#d0dce8}
+		.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+		.btn{padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+		.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent1);transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+		.btn-ghost:hover{transform:translateY(-3px);background:rgba(57,162,255,0.08);border-color:var(--accent1);box-shadow:0 6px 20px rgba(57,162,255,0.15)}
+		.btn-discord{background:linear-gradient(90deg,#7289da,#5865f2);color:white;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+		.btn-discord:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(88,101,242,0.4)}
+		/* Project card */
+		.project-card{margin-top:18px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(9,18,36,0.6), rgba(4,8,16,0.4));box-shadow:0 8px 40px rgba(3,10,30,0.6);border:1px solid rgba(57,162,255,0.06);transition:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+		.project-card:hover{border-color:rgba(57,162,255,0.25);background:linear-gradient(180deg, rgba(9,18,36,0.8), rgba(4,8,16,0.5));box-shadow:0 12px 50px rgba(57,162,255,0.15)}
+		.project-title{display:flex;align-items:center;gap:12px;transition:all 0.3s ease}
+		.neon{padding:6px 10px;background:linear-gradient(90deg,#05233f,transparent);border-radius:8px;color:var(--accent1);box-shadow:0 6px 30px rgba(57,162,255,0.08);font-weight:700;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+		.neon:hover{background:linear-gradient(90deg,#06345a,rgba(57,162,255,0.1));box-shadow:0 8px 40px rgba(57,162,255,0.2)}
+		/* Stats */
+		.stats{display:flex;gap:12px;margin:32px 0;flex-wrap:wrap}
+		.stat{flex:1 1 160px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;text-align:center;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+		.stat:hover{background:linear-gradient(180deg, rgba(57,162,255,0.08), rgba(57,162,255,0.02));transform:translateY(-4px);box-shadow:0 8px 25px rgba(57,162,255,0.12)}
+		.stat .num{font-size:24px;font-weight:800;color:#e9f5ff;transition:color 0.3s ease}
+		.stat:hover .num{color:var(--accent1)}
+		.stat .label{color:var(--muted);font-size:13px;margin-top:6px;transition:color 0.3s ease}
+		.stat:hover .label{color:#d0dce8}
+		/* About & Contact */
+		.cards{display:grid;grid-template-columns:1fr 340px;gap:18px}
+		.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;transition:all 0.35s cubic-bezier(0.4,0,0.2,1)}
+		.card:hover{background:linear-gradient(180deg, rgba(57,162,255,0.08), rgba(255,255,255,0.01));transform:translateY(-2px);box-shadow:0 8px 25px rgba(57,162,255,0.1)}
+		.card h3,.card h4{transition:color 0.3s ease}
+		.card:hover h3,.card:hover h4{color:var(--accent1)}
+		.discord-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,#5865f2,#7289da);color:white;text-decoration:none;font-weight:700;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+		.discord-btn:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(88,101,242,0.45)}
+		.discord-btn svg{transition:transform 0.3s ease}
+		.discord-btn:hover svg{transform:scale(1.15)}
+		/* Footer */
+		footer{padding:28px 0;color:var(--muted);text-align:center;font-size:14px}
+		footer a{color:var(--accent1);transition:all 0.25s ease;text-decoration:none}
+		footer a:hover{color:#5ba3ff;text-decoration:underline}
+		/* Responsive */
+		@media (max-width:880px){
+			.cards{grid-template-columns:1fr}
+			nav ul{display:none}
+			.menu-toggle{display:inline-flex}
+			.hero{padding:36px 0}
+			h1{font-size:36px}
+		}
+
+		/* Custom cursor & background light */
+		#cursor-light{
+			position:fixed;
+			left:0;top:0;
+			width:340px;height:340px;border-radius:50%;
+			background:radial-gradient(circle at 50% 50%, rgba(57,162,255,0.18) 0%, rgba(57,162,255,0.08) 18%, rgba(57,162,255,0.02) 40%, transparent 60%);
+			filter:blur(36px);
+			transform:translate(-50%,-50%) scale(1);
+			pointer-events:none;
+			transition:opacity 0.25s ease, transform 0.3s cubic-bezier(0.2,0.9,0.2,1);
+			opacity:0.95;
+			mix-blend-mode:screen;
+			z-index:80;
+		}
+		#cursor-dot{
+			position:fixed;left:0;top:0;z-index:90;pointer-events:none;
+			width:12px;height:12px;border-radius:50%;
+			background:linear-gradient(90deg,var(--accent1),var(--accent2));
+			box-shadow:0 8px 26px rgba(57,162,255,0.45), 0 0 10px rgba(57,162,255,0.25);
+			transform:translate(-50%,-50%) scale(1);
+			transition:transform 0.14s cubic-bezier(0.2,0.9,0.2,1), opacity 0.2s ease;
+			opacity:1;
+		}
+		#cursor-dot.cursor-hover{transform:translate(-50%,-50%) scale(1.9);box-shadow:0 14px 46px rgba(57,162,255,0.55);}
+		#cursor-dot.cursor-press{transform:translate(-50%,-50%) scale(0.85);}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="nav">
+				<div class="brand">
+					<!-- Use the attached logo file saved as 'logo.png' in this folder -->
+					<img src="logo.png" alt="Fexiaczek logo" style="width:48px;height:48px;border-radius:8px;object-fit:cover;box-shadow:var(--neon);background:#000" />
+					<div>
+						<div style="font-weight:700">Fexiaczek.dev</div>
+						<div style="font-size:12px;color:var(--muted)">Developer stron i botów Discord</div>
+					</div>
+				</div>
+				<nav>
+					<a class="cta" href="https://discord.gg/megxdbjHED" target="_blank" rel="noopener">Skontaktuj się</a>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="hero-left">
+					<h1>Fexiaczek.dev</h1>
+					<p class="lead">Developer stron WWW, botów Discord i nowoczesnych rozwiązań programistycznych. Tworzę profesjonalne strony internetowe, boty Discord oraz zaawansowane projekty programistyczne dopasowane do potrzeb klienta.</p>
+					<div class="hero-buttons">
+						<a class="btn btn-discord" href="https://discord.gg/megxdbjHED" target="_blank" rel="noopener">Mój Discord</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="stats" id="stats">
+				<div class="stat card">
+					<div class="num" data-target="3">0</div>
+					<div class="label">Lata doświadczenia</div>
+				</div>
+				<div class="stat card">
+					<div class="num" data-target="100">0</div>
+					<div class="label">Zadowolonych klientów</div>
+				</div>
+				<div class="stat card">
+					<div class="num" data-target="200">0</div>
+					<div class="label">Wykonanych projektów</div>
+				</div>
+				<div class="stat card">
+					<div class="num">Szybki kontakt</div>
+					<div class="label">Pomoc 24/7</div>
+				</div>
+			</section>
+
+			<section class="cards" id="about">
+				<div class="card">
+					<h3>O mnie</h3>
+					<p style="color:var(--muted)">Programowaniem zajmuję się od ponad 3 lat. Zrealizowałem ponad 200 projektów dla przeszło 100 zadowolonych klientów. Stawiam na jakość, profesjonalizm oraz stały kontakt z klientem. Jestem bardzo dostępny i szybko odpowiadam na wiadomości.</p>
+				</div>
+
+				<aside class="card">
+					<h4>Kontakt</h4>
+					<p style="color:var(--muted)">Najlepszy i najszybszy kontakt ze mną możliwy jest poprzez mój sklep Discord.</p>
+					<a class="discord-btn" id="contact" href="https://discord.gg/megxdbjHED" target="_blank" rel="noopener">
+						<!-- Discord icon SVG -->
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<path d="M7.5 11.25c0 .966-.75 1.75-1.666 1.75S4.166 12.216 4.166 11.25 4.916 9.5 5.834 9.5 7.5 10.284 7.5 11.25zM17.5 11.25c0 .966-.75 1.75-1.667 1.75-.917 0-1.667-.784-1.667-1.75s.75-1.75 1.667-1.75C16.75 9.5 17.5 10.284 17.5 11.25z" fill="white"/>
+						</svg>
+						Dołącz na Discord
+					</a>
+				</aside>
+			</section>
+		</main>
+
+		<footer>
+			<div style="display:flex;justify-content:center;gap:12px;align-items:center;flex-wrap:wrap">
+				<div>Fexiaczek.dev © 2026. Wszelkie prawa zastrzeżone.</div>
+				<div style="color:var(--muted)">E-mail (kontakt w razie współpracy): <a href="mailto:fexiaczek@proton.me" style="color:var(--accent1);text-decoration:none;margin-left:6px">fexiaczek@proton.me</a></div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Custom cursor elements -->
+	<div id="cursor-light" aria-hidden="true"></div>
+	<div id="cursor-dot" aria-hidden="true"></div>
+
+	<script>
+		// Mobile nav toggle
+		function toggleMenu(){
+			const ul = document.getElementById('navLinks');
+			if(!ul) return;
+			if(ul.style.display==='flex'){ul.style.display='none'} else {ul.style.display='flex'; ul.style.flexDirection='column'; ul.style.background='transparent';}
+		}
+
+		// Simple counters
+		function animateCounters(){
+			const nums = document.querySelectorAll('.num[data-target]');
+			nums.forEach(el=>{
+				const target = Number(el.getAttribute('data-target'));
+				let start = 0;
+				const duration = 1200;
+				const stepTime = Math.max(20, Math.floor(duration/target));
+				const step = ()=>{
+					start += 1;
+					el.textContent = start + (target>1 && el.getAttribute('data-target')!=='3'?'+':'');
+					if(start < target) setTimeout(step, stepTime);
+					else if(target===3) el.textContent = '3+';
+				};
+				step();
+			})
+		}
+
+		// Trigger when visible
+		document.addEventListener('DOMContentLoaded', ()=>{
+			const stats = document.getElementById('stats');
+			if('IntersectionObserver' in window && stats){
+				const obs = new IntersectionObserver((entries, o)=>{
+					entries.forEach(e=>{if(e.isIntersecting){animateCounters(); o.disconnect();}})
+				},{threshold:0.3});
+				obs.observe(stats);
+			} else { animateCounters(); }
+		});
+
+		// Custom cursor: smooth dot + background light
+		(function(){
+			const dot = document.getElementById('cursor-dot');
+			const light = document.getElementById('cursor-light');
+			if(!dot || !light) return;
+
+			let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
+			let dotX = mouseX, dotY = mouseY;
+			let lightX = mouseX, lightY = mouseY;
+
+			const lerp = (a,b,n)=> (1-n)*a + n*b;
+
+			document.addEventListener('mousemove', (e)=>{
+				mouseX = e.clientX; mouseY = e.clientY;
+				// ensure visible
+				dot.style.opacity = '1'; light.style.opacity = '0.95';
+			});
+			document.addEventListener('mouseleave', ()=>{ dot.style.opacity='0'; light.style.opacity='0'; });
+			document.addEventListener('mouseenter', ()=>{ dot.style.opacity='1'; light.style.opacity='0.95'; });
+
+			document.addEventListener('mousedown', ()=>{ dot.classList.add('cursor-press'); });
+			document.addEventListener('mouseup', ()=>{ dot.classList.remove('cursor-press'); });
+
+			// enlarge cursor on interactive elements
+			const hoverTargets = document.querySelectorAll('a, button, .btn, .discord-btn, .cta');
+			hoverTargets.forEach(el=>{
+				el.addEventListener('mouseenter', ()=> dot.classList.add('cursor-hover'));
+				el.addEventListener('mouseleave', ()=> dot.classList.remove('cursor-hover'));
+			});
+
+			function render(){
+				dotX = lerp(dotX, mouseX, 0.18);
+				dotY = lerp(dotY, mouseY, 0.18);
+				lightX = lerp(lightX, mouseX, 0.08);
+				lightY = lerp(lightY, mouseY, 0.08);
+				dot.style.left = dotX + 'px'; dot.style.top = dotY + 'px';
+				light.style.left = lightX + 'px'; light.style.top = lightY + 'px';
+				requestAnimationFrame(render);
+			}
+			requestAnimationFrame(render);
+		})();
+	</script>
+</body>
+</html>
+
